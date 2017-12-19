@@ -12,16 +12,16 @@ import javax.naming.NamingException;
  * @mail ricardo.job@ifpb.edu.br
  * @since 12/12/2017, 08:13:38
  */
-public class ServiceLocator {
+public class ServiceLocator<T> {
 
-    public Calculadora lookup(String name) {
+    public T lookup(String name) {
         try {
             Properties properties = new Properties();
             properties.put(InitialContext.INITIAL_CONTEXT_FACTORY,
                     "com.sun.enterprise.naming.SerialInitContextFactory");
 
             Context context = new InitialContext(properties);
-            return (Calculadora) context.lookup(name);
+            return (T) context.lookup(name);
         } catch (NamingException ex) {
             Logger.getLogger(ServiceLocator.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -11,7 +11,7 @@ import br.edu.ifpb.shared.ServiceLocator;
 public class Main {
 
     public static void main(String[] args) {
-        Calculadora c = new ServiceLocator()
+        Calculadora c = (Calculadora) new ServiceLocator()
                 .lookup("java:global/core/CalculadoraSimples");
         System.out.println(c.somar(3, 49));
     }

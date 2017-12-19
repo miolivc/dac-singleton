@@ -19,8 +19,7 @@ public class CalculadoraControlador {
 
     @PostConstruct
     public void init() {
-        calculadora = new ServiceLocator()
-                .lookup("java:global/core/CalculadoraSimples");
+        calculadora = (Calculadora) new ServiceLocator().lookup("java:global/core/CalculadoraSimples");
     }
 
     private int a;
